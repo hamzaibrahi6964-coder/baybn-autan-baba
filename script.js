@@ -571,3 +571,22 @@ if (loveLetter) {
     );
 
 }
+
+
+/* =========================================
+   REASON CARDS
+========================================= */
+
+const reasonCards =
+    document.querySelectorAll(".reason-card");
+
+
+reasonCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        card.classList.toggle("active");
+
+    });
+
+});
