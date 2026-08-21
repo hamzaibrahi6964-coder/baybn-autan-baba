@@ -1588,15 +1588,13 @@ h1 span {
 
     }
 
-    .memory-card.reverse
-    .memory-image {
+    .memory-card.reverse .memory-image {
 
         order: 1;
 
     }
 
-    .memory-card.reverse
-    .memory-content {
+    .memory-card.reverse .memory-content {
 
         order: 2;
 
