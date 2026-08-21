@@ -4474,3 +4474,578 @@ h1 span {
 
 }
 
+
+/* =========================================
+   FINAL PROPOSAL
+========================================= */
+
+.proposal-section {
+
+    min-height: 100vh;
+
+    padding: 120px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            rgba(242, 154, 170, 0.18),
+            transparent 45%
+        ),
+
+        #f7f3ed;
+
+    overflow: hidden;
+
+}
+
+
+/* INTRO */
+
+.proposal-intro {
+
+    max-width: 650px;
+
+    animation:
+
+        proposalFade 1s ease;
+
+}
+
+
+.proposal-small {
+
+    display: block;
+
+    margin-bottom: 20px;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #4f83c2;
+
+    font-weight: 600;
+
+}
+
+
+.proposal-intro h2 {
+
+    font-family:
+
+        "Playfair Display",
+        serif;
+
+    font-size:
+
+        clamp(
+            38px,
+            6vw,
+            70px
+        );
+
+    color: #304a67;
+
+    margin-bottom: 25px;
+
+}
+
+
+.proposal-intro p {
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #657386;
+
+}
+
+
+/* =========================================
+   RING
+========================================= */
+
+.ring-wrapper {
+
+    position: relative;
+
+    width: 260px;
+
+    height: 260px;
+
+    margin-top: 70px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    animation:
+
+        ringFloat
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* GLOW */
+
+.ring-glow {
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+
+        rgba(
+            242,
+            154,
+            170,
+            0.25
+        );
+
+    filter:
+
+        blur(30px);
+
+}
+
+
+/* RING */
+
+.ring {
+
+    position: relative;
+
+    width: 130px;
+
+    height: 150px;
+
+}
+
+
+/* DIAMOND */
+
+.diamond {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    width: 70px;
+
+    height: 70px;
+
+    transform:
+
+        translateX(-50%)
+        rotate(45deg);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #d7efff,
+            #ffffff
+        );
+
+    border:
+
+        4px solid
+        #e5c15b;
+
+    box-shadow:
+
+        0 0 30px
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        ),
+
+        0 0 50px
+        rgba(
+            229,
+            193,
+            91,
+            0.5
+        );
+
+}
+
+
+/* RING BAND */
+
+.ring-band {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 120px;
+
+    height: 80px;
+
+    transform:
+
+        translateX(-50%);
+
+    border:
+
+        12px solid
+        #e5c15b;
+
+    border-radius:
+
+        50%;
+
+    box-shadow:
+
+        0 10px 30px
+        rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
+
+}
+
+
+/* TAP TEXT */
+
+.tap-ring {
+
+    margin-top: 25px;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    color: #4f83c2;
+
+    animation:
+
+        pulseText
+        1.8s
+        infinite;
+
+}
+
+
+/* =========================================
+   PROPOSAL MESSAGE
+========================================= */
+
+.proposal-message {
+
+    max-width: 700px;
+
+    margin-top: 70px;
+
+    padding: 70px 40px;
+
+    border-radius: 30px;
+
+    background:
+
+        rgba(
+            255,
+            255,
+            255,
+            0.7
+        );
+
+    box-shadow:
+
+        0 30px 70px
+        rgba(
+            48,
+            74,
+            103,
+            0.12
+        );
+
+    opacity: 0;
+
+    transform:
+
+        translateY(50px)
+        scale(0.95);
+
+    pointer-events: none;
+
+    transition:
+
+        1s ease;
+
+}
+
+
+.proposal-message.show {
+
+    opacity: 1;
+
+    transform:
+
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+
+}
+
+
+.proposal-heart {
+
+    font-size: 55px;
+
+    margin-bottom: 25px;
+
+    animation:
+
+        heartBeat
+        1.5s
+        infinite;
+
+}
+
+
+.proposal-message span {
+
+    display: block;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #4f83c2;
+
+    margin-bottom: 25px;
+
+}
+
+
+.proposal-message h1 {
+
+    font-family:
+
+        "Playfair Display",
+        serif;
+
+    font-size:
+
+        clamp(
+            42px,
+            7vw,
+            75px
+        );
+
+    color: #304a67;
+
+    margin-bottom: 35px;
+
+}
+
+
+.proposal-message p {
+
+    font-size: 17px;
+
+    line-height: 2;
+
+    color: #657386;
+
+    margin-bottom: 20px;
+
+}
+
+
+.proposal-ending {
+
+    margin-top: 40px;
+
+}
+
+
+.proposal-message h2 {
+
+    margin-top: 35px;
+
+    font-family:
+
+        "Playfair Display",
+        serif;
+
+    font-size:
+
+        clamp(
+            30px,
+            5vw,
+            50px
+        );
+
+    color: #d9778b;
+
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes ringFloat {
+
+    0%,
+    100% {
+
+        transform:
+
+            translateY(0)
+            rotate(-3deg);
+
+    }
+
+    50% {
+
+        transform:
+
+            translateY(-18px)
+            rotate(3deg);
+
+    }
+
+}
+
+
+@keyframes pulseText {
+
+    0%,
+    100% {
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+
+        transform:
+
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+
+            scale(1.15);
+
+    }
+
+}
+
+
+@keyframes proposalFade {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .proposal-section {
+
+        padding:
+
+            100px 20px;
+
+    }
+
+
+    .proposal-message {
+
+        padding:
+
+            50px 25px;
+
+        margin-top:
+
+            40px;
+
+    }
+
+
+    .proposal-message p {
+
+        font-size:
+
+            15px;
+
+    }
+
+}
+
