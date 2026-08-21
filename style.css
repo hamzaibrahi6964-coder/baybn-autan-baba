@@ -2551,3 +2551,355 @@ h1 span {
 
 }
 
+/* =========================================
+   LOVE LETTER SECTION
+========================================= */
+
+.love-letter-section {
+    min-height: 100vh;
+    position: relative;
+    padding: 110px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+/* Section Heading */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-heading span {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color: #4f83c2;
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: #2d4059;
+    margin: 0;
+}
+
+.heading-line {
+    width: 45px;
+    height: 2px;
+    background: #4f83c2;
+    margin: 18px auto 0;
+}
+
+
+/* Letter */
+
+.love-letter {
+    width: min(100%, 650px);
+    position: relative;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #fffdf8 0px,
+            #fffdf8 31px,
+            #dce5ee 32px
+        );
+
+    border-radius: 14px;
+
+    padding: 35px 55px 45px;
+
+    box-shadow:
+        0 25px 70px rgba(56, 84, 116, 0.18);
+
+    border: 1px solid rgba(255,255,255,.8);
+
+    opacity: 0;
+    transform:
+        translateY(50px)
+        rotateX(5deg);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    z-index: 2;
+}
+
+
+/* Red notebook line */
+
+.love-letter::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 38px;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background:
+        rgba(230, 120, 120, .35);
+
+}
+
+
+/* Reveal */
+
+.love-letter.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        rotateX(0);
+
+}
+
+
+/* Letter Header */
+
+.letter-top {
+
+    padding-bottom: 18px;
+
+    margin-bottom: 18px;
+
+    border-bottom:
+        1px solid rgba(80, 110, 140, .15);
+
+}
+
+.letter-top span {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #7890a8;
+
+    font-weight: 600;
+
+}
+
+
+/* Letter Text */
+
+.letter-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.letter-content h3 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    color:
+        #416b9d;
+
+    font-size:
+        24px;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.letter-content p {
+
+    font-size:
+        15px;
+
+    line-height:
+        2;
+
+    color:
+        #53677c;
+
+    margin-bottom:
+        14px;
+
+}
+
+
+.letter-final {
+
+    font-family:
+        Georgia,
+        serif;
+
+    color:
+        #416b9d !important;
+
+    font-size:
+        17px !important;
+
+    margin-top:
+        25px;
+
+}
+
+
+.letter-signature {
+
+    margin-top:
+        30px;
+
+    text-align:
+        right;
+
+    font-family:
+        Georgia,
+        serif;
+
+    color:
+        #416b9d;
+
+}
+
+
+.letter-signature span {
+
+    display:
+        block;
+
+    font-size:
+        14px;
+
+    font-style:
+        italic;
+
+}
+
+
+.letter-signature strong {
+
+    display:
+        block;
+
+    font-size:
+        19px;
+
+    margin-top:
+        5px;
+
+}
+
+
+/* Flower */
+
+.letter-flower {
+
+    position:
+        absolute;
+
+    right:
+        -18px;
+
+    bottom:
+        -20px;
+
+    font-size:
+        65px;
+
+    filter:
+        drop-shadow(
+            0 10px 15px
+            rgba(0,0,0,.12)
+        );
+
+}
+
+
+/* Soft Glow */
+
+.letter-glow {
+
+    position:
+        absolute;
+
+    width:
+        500px;
+
+    height:
+        500px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 190, 210, .22),
+            transparent 70%
+        );
+
+    filter:
+        blur(30px);
+
+    pointer-events:
+        none;
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .love-letter {
+
+        padding:
+            30px
+            28px
+            40px;
+
+    }
+
+    .love-letter::before {
+
+        left:
+            20px;
+
+    }
+
+    .letter-content p {
+
+        font-size:
+            14px;
+
+        line-height:
+            1.9;
+
+    }
+
+    .letter-flower {
+
+        font-size:
+            50px;
+
+        right:
+            -8px;
+
+    }
+
+}
+
