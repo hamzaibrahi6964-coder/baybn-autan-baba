@@ -179,34 +179,30 @@ function wrongCode() {
 
 function unlockSurprise() {
 
-    if (!hero) return;
-
-
     hero.style.transition =
         "opacity 1s ease, transform 1s ease";
 
-    hero.style.opacity = "0";
-
-    hero.style.transform =
-        "scale(1.05)";
+    hero.classList.add("unlocked");
 
 
     setTimeout(() => {
 
-        const birthdaySection =
-            document.getElementById(
-                "birthdaySection"
-            );
+        document
+            .getElementById("birthdaySection")
+            .scrollIntoView({
 
-        if (birthdaySection) {
-
-            birthdaySection.scrollIntoView({
                 behavior: "smooth"
+
             });
 
-        }
-
     }, 900);
+
+
+    setTimeout(() => {
+
+        hero.style.display = "none";
+
+    }, 1200);
 
 }
 
