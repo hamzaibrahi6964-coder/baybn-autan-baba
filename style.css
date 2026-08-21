@@ -995,3 +995,626 @@ h1 span {
     }
 
 }
+
+/* =========================================
+   OUR MEMORIES SECTION
+========================================= */
+
+.memories-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 130px 20px;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #bdd6ef 0%,
+            #eaf4ff 50%,
+            #dcecff 100%
+        );
+
+}
+
+
+/* =========================================
+   SECTION INTRO
+========================================= */
+
+.section-intro {
+
+    width: min(700px, 100%);
+
+    margin: 0 auto 100px;
+
+    text-align: center;
+
+}
+
+
+.section-intro h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(46px, 6vw, 75px);
+
+    line-height: .95;
+
+    font-weight: 600;
+
+    color: var(--text);
+
+    margin-bottom: 28px;
+
+}
+
+
+.section-intro h2 span {
+
+    display: block;
+
+    color: var(--blue);
+
+    font-style: italic;
+
+    margin-top: 8px;
+
+}
+
+
+.section-intro > p:last-child {
+
+    max-width: 540px;
+
+    margin: auto;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    font-style: italic;
+
+    opacity: .75;
+
+}
+
+
+/* =========================================
+   MEMORY STACK
+========================================= */
+
+.memory-stack {
+
+    width: min(1050px, 100%);
+
+    margin: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 80px;
+
+}
+
+
+/* =========================================
+   MEMORY CARD
+========================================= */
+
+.memory-card {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding: 22px;
+
+    border-radius: 32px;
+
+    background:
+
+        rgba(255,255,255,.38);
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.7);
+
+    box-shadow:
+
+        0 30px 70px
+        rgba(60,100,145,.14);
+
+    backdrop-filter:
+        blur(18px);
+
+    transition:
+
+        transform .5s ease,
+        box-shadow .5s ease;
+
+}
+
+
+.memory-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+
+        0 45px 90px
+        rgba(60,100,145,.22);
+
+}
+
+
+.memory-card.reverse
+.memory-image {
+
+    order: 2;
+
+}
+
+.memory-card.reverse
+.memory-content {
+
+    order: 1;
+
+}
+
+
+/* =========================================
+   MEMORY IMAGE
+========================================= */
+
+.memory-image {
+
+    position: relative;
+
+    height: 440px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        #c5d9ec;
+
+}
+
+
+.memory-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            to top,
+            rgba(20,40,60,.35),
+            transparent 45%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.memory-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 1s ease;
+
+}
+
+
+.memory-card:hover
+.memory-image img {
+
+    transform:
+        scale(1.06);
+
+}
+
+
+/* =========================================
+   MEMORY NUMBER
+========================================= */
+
+.memory-number {
+
+    position: absolute;
+
+    z-index: 2;
+
+    top: 20px;
+
+    left: 20px;
+
+    width: 54px;
+
+    height: 54px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    color: white;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    background:
+
+        rgba(79,131,194,.85);
+
+    backdrop-filter:
+        blur(10px);
+
+}
+
+
+/* =========================================
+   MEMORY CONTENT
+========================================= */
+
+.memory-content {
+
+    padding:
+
+        30px
+        15px;
+
+}
+
+
+.memory-label {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: var(--blue);
+
+    font-weight: 600;
+
+    margin-bottom: 18px;
+
+}
+
+
+.memory-content h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(34px, 4vw, 50px);
+
+    line-height: 1;
+
+    margin-bottom: 24px;
+
+    color: var(--text);
+
+}
+
+
+.memory-content > p:not(.memory-label) {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 19px;
+
+    line-height: 1.65;
+
+    font-style: italic;
+
+    opacity: .78;
+
+}
+
+
+/* =========================================
+   HEART BUTTON
+========================================= */
+
+.memory-heart {
+
+    width: 52px;
+
+    height: 52px;
+
+    margin-top: 28px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f29aaa,
+            #d96f8c
+        );
+
+    box-shadow:
+
+        0 12px 25px
+        rgba(242,154,170,.35);
+
+    transition:
+
+        transform .3s ease;
+
+}
+
+
+.memory-heart:hover {
+
+    transform:
+        scale(1.15)
+        rotate(-8deg);
+
+}
+
+
+.memory-heart.active {
+
+    animation:
+        memoryPulse
+        .7s
+        ease;
+
+}
+
+
+@keyframes memoryPulse {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.45);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   ENDING
+========================================= */
+
+.memory-ending {
+
+    text-align: center;
+
+    margin-top: 110px;
+
+}
+
+
+.memory-ending span {
+
+    display: block;
+
+    font-size: 30px;
+
+    color: var(--pink);
+
+    margin-bottom: 16px;
+
+    animation:
+        heartbeat
+        1.8s
+        infinite;
+
+}
+
+
+.memory-ending p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-style: italic;
+
+    font-size: 22px;
+
+    opacity: .7;
+
+}
+
+
+.memory-ending h3 {
+
+    margin-top: 8px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(32px, 5vw, 55px);
+
+    color: var(--blue);
+
+}
+
+
+/* =========================================
+   DECORATIONS
+========================================= */
+
+.memory-star {
+
+    position: absolute;
+
+    opacity: .35;
+
+    color: var(--pink);
+
+    animation:
+        float
+        5s
+        infinite
+        ease-in-out;
+
+}
+
+
+.star-1 {
+
+    top: 12%;
+
+    left: 7%;
+
+    font-size: 55px;
+
+}
+
+
+.star-2 {
+
+    right: 9%;
+
+    top: 35%;
+
+    font-size: 40px;
+
+    animation-delay: 2s;
+
+}
+
+
+.star-3 {
+
+    bottom: 15%;
+
+    left: 10%;
+
+    font-size: 30px;
+
+    animation-delay: 1s;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .memories-section {
+
+        padding:
+            100px
+            16px;
+
+    }
+
+    .memory-stack {
+
+        gap: 50px;
+
+    }
+
+    .memory-card {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 10px;
+
+        padding: 14px;
+
+        border-radius: 25px;
+
+    }
+
+    .memory-card.reverse
+    .memory-image {
+
+        order: 1;
+
+    }
+
+    .memory-card.reverse
+    .memory-content {
+
+        order: 2;
+
+    }
+
+    .memory-image {
+
+        height: 420px;
+
+    }
+
+    .memory-content {
+
+        padding:
+            28px
+            14px
+            20px;
+
+    }
+
+}
