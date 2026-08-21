@@ -590,3 +590,52 @@ reasonCards.forEach(card => {
     });
 
 });
+
+
+/* =========================================
+   ANNIVERSARY SURPRISE
+========================================= */
+
+const anniversaryHeart =
+    document.getElementById(
+        "anniversaryHeart"
+    );
+
+const anniversaryMessage =
+    document.getElementById(
+        "anniversaryMessage"
+    );
+
+
+if (
+    anniversaryHeart &&
+    anniversaryMessage
+) {
+
+    anniversaryHeart.addEventListener(
+        "click",
+        () => {
+
+            anniversaryHeart.style.transform =
+                "scale(1.4)";
+
+            anniversaryHeart.style.opacity =
+                "0";
+
+
+            setTimeout(() => {
+
+                anniversaryHeart.style.display =
+                    "none";
+
+
+                anniversaryMessage.classList.add(
+                    "show"
+                );
+
+            }, 350);
+
+        }
+    );
+
+}
