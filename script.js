@@ -639,3 +639,228 @@ if (
     );
 
 }
+
+
+/* =========================================
+   MAKE A WISH
+========================================= */
+
+const birthdayCandle =
+    document.getElementById(
+        "birthdayCandle"
+    );
+
+const candleFlame =
+    document.getElementById(
+        "candleFlame"
+    );
+
+const candleSmoke =
+    document.getElementById(
+        "candleSmoke"
+    );
+
+const candleInstruction =
+    document.getElementById(
+        "candleInstruction"
+    );
+
+const wishReveal =
+    document.getElementById(
+        "wishReveal"
+    );
+
+const wishConfetti =
+    document.getElementById(
+        "wishConfetti"
+    );
+
+const finalSurpriseBtn =
+    document.getElementById(
+        "finalSurpriseBtn"
+    );
+
+const finalMessage =
+    document.getElementById(
+        "finalMessage"
+    );
+
+
+let wishMade = false;
+
+
+/* =========================================
+   BLOW OUT CANDLE
+========================================= */
+
+if (birthdayCandle) {
+
+    birthdayCandle.addEventListener(
+        "click",
+        () => {
+
+            if (wishMade) return;
+
+            wishMade = true;
+
+
+            /* Flame goes out */
+
+            candleFlame.classList.add(
+                "out"
+            );
+
+
+            /* Smoke appears */
+
+            setTimeout(() => {
+
+                candleSmoke.classList.add(
+                    "show"
+                );
+
+            }, 300);
+
+
+            /* Update instruction */
+
+            candleInstruction.textContent =
+                "✨ Your wish is now in the universe...";
+
+
+            /* Celebration */
+
+            createWishConfetti();
+
+
+            /* Reveal message */
+
+            setTimeout(() => {
+
+                wishReveal.classList.add(
+                    "show"
+                );
+
+
+                wishReveal.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "center"
+
+                });
+
+            }, 1000);
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   CREATE CONFETTI
+========================================= */
+
+function createWishConfetti() {
+
+    const colors = [
+
+        "#f29aaa",
+        "#4f83c2",
+        "#ffd166",
+        "#ffffff",
+        "#d96b88"
+
+    ];
+
+
+    for (
+        let i = 0;
+        i < 120;
+        i++
+    ) {
+
+        const piece =
+            document.createElement("span");
+
+
+        piece.classList.add(
+            "wish-piece"
+        );
+
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+
+        piece.style.background =
+            colors[
+                Math.floor(
+                    Math.random()
+                    *
+                    colors.length
+                )
+            ];
+
+
+        piece.style.animationDelay =
+            Math.random() * .8 + "s";
+
+
+        piece.style.transform =
+            `rotate(
+                ${Math.random() * 360}deg
+            )`;
+
+
+        wishConfetti.appendChild(
+            piece
+        );
+
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        }, 5000);
+
+    }
+
+}
+
+
+/* =========================================
+   FINAL SURPRISE
+========================================= */
+
+if (finalSurpriseBtn) {
+
+    finalSurpriseBtn.addEventListener(
+        "click",
+        () => {
+
+            finalMessage.classList.add(
+                "show"
+            );
+
+
+            createWishConfetti();
+
+
+            setTimeout(() => {
+
+                finalMessage.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "center"
+
+                });
+
+            }, 200);
+
+        }
+    );
+
+}
