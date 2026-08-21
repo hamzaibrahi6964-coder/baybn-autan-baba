@@ -864,3 +864,86 @@ if (finalSurpriseBtn) {
     );
 
 }
+
+/* =========================================
+   FINAL PROPOSAL RING
+========================================= */
+
+const ringWrapper =
+    document.getElementById("ringWrapper");
+
+const proposalMessage =
+    document.getElementById("proposalMessage");
+
+
+ringWrapper.addEventListener(
+    "click",
+    () => {
+
+        /* STOP FLOATING */
+
+        ringWrapper.style.animation =
+            "none";
+
+
+        /* LITTLE POP EFFECT */
+
+        ringWrapper.animate(
+
+            [
+
+                {
+                    transform:
+                        "scale(1)"
+                },
+
+                {
+                    transform:
+                        "scale(1.25)"
+                },
+
+                {
+                    transform:
+                        "scale(1)"
+                }
+
+            ],
+
+            {
+
+                duration: 700,
+
+                easing:
+
+                    "cubic-bezier(.2,.8,.2,1)"
+
+            }
+
+        );
+
+
+        /* SHOW PROPOSAL */
+
+        setTimeout(() => {
+
+            proposalMessage
+                .classList
+                .add("show");
+
+
+            proposalMessage
+                .scrollIntoView({
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "center"
+
+                });
+
+        }, 500);
+
+    }
+
+);
