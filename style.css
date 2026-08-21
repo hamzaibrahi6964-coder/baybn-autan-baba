@@ -3189,3 +3189,471 @@ h1 span {
 
 }
 
+/* =========================================
+   ANNIVERSARY SECTION
+========================================= */
+
+.anniversary-section {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 100px 20px;
+
+    overflow: hidden;
+
+}
+
+
+/* Soft romantic glow */
+
+.anniversary-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255, 155, 185, .22),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+}
+
+
+/* CONTENT */
+
+.anniversary-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 720px);
+
+    text-align: center;
+
+}
+
+
+.anniversary-label {
+
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+
+    color: #4f83c2;
+
+    margin-bottom: 18px;
+
+}
+
+
+.anniversary-content h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(32px, 5vw, 52px);
+
+    line-height: 1.3;
+
+    color: #2d4059;
+
+    margin: 0;
+
+}
+
+
+.anniversary-line {
+
+    width: 45px;
+
+    height: 2px;
+
+    background: #4f83c2;
+
+    margin: 24px auto 35px;
+
+}
+
+
+/* HEART AREA */
+
+.anniversary-heart-wrap {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 16px;
+
+    transition: all .6s ease;
+
+}
+
+
+.anniversary-heart-wrap span {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #708298;
+
+}
+
+
+.anniversary-heart {
+
+    width: 100px;
+
+    height: 100px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 52px;
+
+    background:
+
+        rgba(255,255,255,.65);
+
+    box-shadow:
+
+        0 15px 45px
+        rgba(217, 92, 125, .25);
+
+    transition:
+
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    animation:
+
+        heartPulse 2s infinite;
+
+}
+
+
+.anniversary-heart:hover {
+
+    transform: scale(1.12);
+
+    box-shadow:
+
+        0 20px 55px
+        rgba(217, 92, 125, .4);
+
+}
+
+
+/* HEART ANIMATION */
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+    }
+
+}
+
+
+/* MESSAGE */
+
+.anniversary-message {
+
+    max-height: 0;
+
+    opacity: 0;
+
+    overflow: hidden;
+
+    transform: translateY(30px);
+
+    transition:
+
+        max-height 1s ease,
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+
+.anniversary-message.show {
+
+    max-height: 1200px;
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    margin-top: 45px;
+
+}
+
+
+/* ICONS */
+
+.celebration-icons {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    font-size: 28px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.love-symbol {
+
+    font-size: 45px;
+
+    animation:
+
+        loveFloat 2s ease-in-out infinite;
+
+}
+
+
+@keyframes loveFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px)
+            scale(1.1);
+
+    }
+
+}
+
+
+/* SMALL TEXT */
+
+.anniversary-small {
+
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #6e8db1;
+
+    margin-bottom: 16px;
+
+}
+
+
+/* MAIN ANNIVERSARY TEXT */
+
+.anniversary-message h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(25px, 4vw, 38px);
+
+    line-height: 1.4;
+
+    color: #416b9d;
+
+    margin-bottom: 28px;
+
+}
+
+
+.anniversary-message p {
+
+    max-width: 600px;
+
+    margin:
+
+        0 auto 18px;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+    color: #617489;
+
+}
+
+
+.anniversary-special {
+
+    margin-top: 28px !important;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px !important;
+
+    color: #4d6682 !important;
+
+}
+
+
+.anniversary-special strong {
+
+    color: #d96b88;
+
+    font-size: 21px;
+
+}
+
+
+/* COUNTER */
+
+.anniversary-counter {
+
+    margin: 32px auto;
+
+    padding: 20px;
+
+    width: min(100%, 350px);
+
+    border-radius: 20px;
+
+    background:
+
+        rgba(255,255,255,.45);
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.7);
+
+    box-shadow:
+
+        0 12px 35px
+        rgba(61,92,124,.1);
+
+}
+
+
+.counter-heart {
+
+    display: block;
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.anniversary-counter p {
+
+    margin: 0;
+
+    font-size: 13px;
+
+    font-style: italic;
+
+}
+
+
+/* FINAL MESSAGE */
+
+.anniversary-ending {
+
+    margin-top: 35px !important;
+
+    font-family: Georgia, serif;
+
+    font-size: 20px !important;
+
+    font-weight: bold;
+
+    color: #416b9d !important;
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .anniversary-section {
+
+        padding: 85px 18px;
+
+    }
+
+    .anniversary-content h2 {
+
+        font-size: 34px;
+
+    }
+
+    .anniversary-message p {
+
+        font-size: 14px;
+
+    }
+
+    .anniversary-heart {
+
+        width: 85px;
+
+        height: 85px;
+
+        font-size: 43px;
+
+    }
+
+}
+
