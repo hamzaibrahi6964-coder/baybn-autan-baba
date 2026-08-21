@@ -229,8 +229,33 @@ document
     .getElementById("startJourney")
     .addEventListener("click", () => {
 
-        alert(
-            "The rest of your surprise is coming next ❤️"
-        );
+        document
+            .getElementById("memoriesSection")
+            .scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+    });
+
+
+/* =========================================
+   MEMORY HEARTS
+========================================= */
+
+document
+    .querySelectorAll(".memory-heart")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            button.classList.remove("active");
+
+            void button.offsetWidth;
+
+            button.classList.add("active");
+
+        });
 
     });
