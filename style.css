@@ -2903,3 +2903,289 @@ h1 span {
 
 }
 
+/* =========================================
+   REASONS SECTION
+========================================= */
+
+.reasons-section {
+    min-height: 100vh;
+    padding: 110px 20px;
+    position: relative;
+    text-align: center;
+}
+
+
+.reasons-heading {
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+
+.reasons-heading > span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color: #4f83c2;
+    margin-bottom: 14px;
+}
+
+
+.reasons-heading h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 4vw, 48px);
+    color: #2d4059;
+    margin: 0;
+}
+
+
+.reasons-heading p {
+    margin-top: 22px;
+    color: #708298;
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+.reasons-grid {
+    width: min(100%, 760px);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+
+    perspective: 1200px;
+}
+
+
+/* CARD */
+
+.reason-card {
+    height: 210px;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+
+.reason-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    transition: transform .7s cubic-bezier(.2,.8,.2,1);
+
+    transform-style: preserve-3d;
+}
+
+
+.reason-card.active .reason-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* FRONT + BACK */
+
+.reason-front,
+.reason-back {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 20px;
+
+    backface-visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* FRONT */
+
+.reason-front {
+
+    background:
+        rgba(255,255,255,.58);
+
+    border:
+        1px solid rgba(255,255,255,.75);
+
+    box-shadow:
+        0 18px 40px rgba(61,92,124,.13);
+
+}
+
+
+.reason-number {
+
+    position: absolute;
+
+    top: 16px;
+    left: 18px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #6e8db1;
+
+}
+
+
+.reason-icon {
+
+    font-size: 34px;
+
+    margin-bottom: 18px;
+
+    animation: reasonFloat 3s ease-in-out infinite;
+}
+
+
+.tap-text {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #7890a8;
+
+}
+
+
+/* BACK */
+
+.reason-back {
+
+    transform: rotateY(180deg);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.92),
+            rgba(244,238,250,.9)
+        );
+
+    box-shadow:
+        0 20px 45px rgba(61,92,124,.18);
+
+}
+
+
+.reason-back h3 {
+
+    font-family: Georgia, serif;
+
+    color: #416b9d;
+
+    font-size: 21px;
+
+    margin: 10px 0 12px;
+
+}
+
+
+.reason-back p {
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    color: #627489;
+
+    margin: 0;
+
+}
+
+
+/* FOOTER */
+
+.reasons-footer {
+
+    margin-top: 40px;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    color: #54739b;
+
+    font-size: 16px;
+
+}
+
+
+/* FLOAT ANIMATION */
+
+@keyframes reasonFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-7px);
+
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .reasons-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .reasons-section {
+
+        padding:
+            80px 15px;
+
+    }
+
+
+    .reason-card {
+
+        height:
+            190px;
+
+    }
+
+
+    .reason-back p {
+
+        font-size:
+            11px;
+
+    }
+
+}
+
