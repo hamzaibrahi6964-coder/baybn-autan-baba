@@ -2550,3 +2550,254 @@ h1 span {
     }
 
 }
+
+/* =========================================
+   CUT THE CAKE
+========================================= */
+
+const cakeWrapper =
+    document.getElementById("cakeWrapper");
+
+const cakeSuccess =
+    document.getElementById("cakeSuccess");
+
+const cakeInstruction =
+    document.getElementById("cakeInstruction");
+
+const confettiContainer =
+    document.getElementById("confettiContainer");
+
+
+let cakeCut = false;
+
+
+cakeWrapper.addEventListener(
+    "pointerdown",
+    startCakeCut
+);
+
+
+cakeWrapper.addEventListener(
+    "pointermove",
+    moveCakeCut
+);
+
+
+cakeWrapper.addEventListener(
+    "pointerup",
+    finishCakeCut
+);
+
+
+let cuttingStarted = false;
+
+
+function startCakeCut(event) {
+
+    if (cakeCut) return;
+
+    cuttingStarted = true;
+
+    cakeWrapper.setPointerCapture(
+        event.pointerId
+    );
+
+}
+
+
+function moveCakeCut(event) {
+
+    if (
+        !cuttingStarted ||
+        cakeCut
+    ) return;
+
+
+    const rect =
+        cakeWrapper.getBoundingClientRect();
+
+
+    const x =
+        event.clientX - rect.left;
+
+
+    /*
+       The user needs to drag
+       around the center of the cake
+    */
+
+    const center =
+        rect.width / 2;
+
+
+    if (
+        x > center - 70 &&
+        x < center + 70
+    ) {
+
+        cakeWrapper.classList.add(
+            "cutting"
+        );
+
+    }
+
+}
+
+
+function finishCakeCut(event) {
+
+    if (
+        !cuttingStarted ||
+        cakeCut
+    ) return;
+
+
+    cuttingStarted = false;
+
+
+    const rect =
+        cakeWrapper.getBoundingClientRect();
+
+
+    const endY =
+        event.clientY - rect.top;
+
+
+    /*
+       Successful cut if the drag
+       reaches low enough on the cake
+    */
+
+    if (endY > 190) {
+
+        completeCakeCut();
+
+    }
+
+}
+
+
+function completeCakeCut() {
+
+    if (cakeCut) return;
+
+
+    cakeCut = true;
+
+
+    cakeWrapper.classList.add(
+        "cut"
+    );
+
+
+    cakeInstruction.textContent =
+        "🎉 Perfect! You cut the cake!";
+
+
+    createConfetti();
+
+
+    setTimeout(() => {
+
+        cakeSuccess.classList.add(
+            "show"
+        );
+
+
+        cakeSuccess.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+        });
+
+    }, 900);
+
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+function createConfetti() {
+
+    const colors = [
+
+        "#f29aaa",
+        "#4f83c2",
+        "#ffd166",
+        "#ffffff",
+        "#ff9f43"
+
+    ];
+
+
+    for (
+        let i = 0;
+        i < 100;
+        i++
+    ) {
+
+        const confetti =
+            document.createElement("span");
+
+
+        confetti.classList.add(
+            "confetti"
+        );
+
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+
+        confetti.style.background =
+            colors[
+                Math.floor(
+                    Math.random() *
+                    colors.length
+                )
+            ];
+
+
+        confetti.style.animationDelay =
+            Math.random() * .8 + "s";
+
+
+        confetti.style.transform =
+            `rotate(
+                ${Math.random() * 360}deg
+            )`;
+
+
+        confettiContainer.appendChild(
+            confetti
+        );
+
+
+        setTimeout(() => {
+
+            confetti.remove();
+
+        }, 4500);
+
+    }
+
+}
+
+
+/* =========================================
+   CONTINUE
+========================================= */
+
+document
+    .getElementById("continueSurprise")
+    .addEventListener("click", () => {
+
+        alert(
+            "Another surprise is waiting ❤️"
+        );
+
+    });
