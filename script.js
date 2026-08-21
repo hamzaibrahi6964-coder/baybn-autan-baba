@@ -6,12 +6,13 @@ window.addEventListener("load", () => {
 
     setTimeout(() => {
 
-        document
-            .getElementById("loader")
-            .classList
-            .add("hidden");
+        const loader = document.getElementById("loader");
 
-    }, 1500);
+        if (loader) {
+            loader.classList.add("hidden");
+        }
+
+    }, 1200);
 
 });
 
@@ -19,8 +20,6 @@ window.addEventListener("load", () => {
 /* =========================================
    SECRET CODE
 ========================================= */
-
-// CHANGE THIS TO ANY 4 DIGIT CODE YOU WANT
 
 const secretCode = "2208";
 
@@ -55,11 +54,8 @@ function updateDots() {
     dots.forEach((dot, index) => {
 
         dot.classList.toggle(
-
             "active",
-
             index < enteredCode.length
-
         );
 
     });
@@ -77,7 +73,6 @@ keys.forEach(key => {
 
         const value = key.dataset.key;
 
-
         if (!value) return;
 
 
@@ -90,17 +85,13 @@ keys.forEach(key => {
         }
 
 
-        /* =====================
-           CHECK PASSWORD
-        ===================== */
+        /* CHECK PASSWORD */
 
         if (enteredCode.length === 4) {
 
             setTimeout(() => {
 
-                if (
-                    enteredCode === secretCode
-                ) {
+                if (enteredCode === secretCode) {
 
                     unlockSurprise();
 
@@ -123,13 +114,17 @@ keys.forEach(key => {
    DELETE
 ========================================= */
 
-deleteKey.addEventListener("click", () => {
+if (deleteKey) {
 
-    enteredCode = enteredCode.slice(0, -1);
+    deleteKey.addEventListener("click", () => {
 
-    updateDots();
+        enteredCode = enteredCode.slice(0, -1);
 
-});
+        updateDots();
+
+    });
+
+}
 
 
 /* =========================================
@@ -142,79 +137,74 @@ function wrongCode() {
 
     updateDots();
 
+    const heroCard =
+        document.querySelector(".hero-card");
 
-    document
-        .querySelector(".hero-card")
-        .animate(
+    if (!heroCard) return;
 
-            [
 
-                {
-                    transform:
-                        "translateX(-10px)"
-                },
+    heroCard.animate(
 
-                {
-                    transform:
-                        "translateX(10px)"
-                },
-
-                {
-                    transform:
-                        "translateX(-10px)"
-                },
-
-                {
-                    transform:
-                        "translateX(0)"
-                }
-
-            ],
+        [
+            {
+                transform: "translateX(-10px)"
+            },
 
             {
+                transform: "translateX(10px)"
+            },
 
-                duration: 400,
+            {
+                transform: "translateX(-10px)"
+            },
 
-                easing:
-                    "ease"
-
+            {
+                transform: "translateX(0)"
             }
+        ],
 
-        );
+        {
+            duration: 400,
+            easing: "ease"
+        }
+
+    );
 
 }
 
 
 /* =========================================
-   UNLOCK
+   UNLOCK SURPRISE
 ========================================= */
 
 function unlockSurprise() {
 
+    if (!hero) return;
+
+
     hero.style.transition =
-
         "opacity 1s ease, transform 1s ease";
-
 
     hero.style.opacity = "0";
 
     hero.style.transform =
-
         "scale(1.05)";
 
 
     setTimeout(() => {
 
-        document
-            .getElementById(
+        const birthdaySection =
+            document.getElementById(
                 "birthdaySection"
-            )
-            .scrollIntoView({
+            );
 
-                behavior:
-                    "smooth"
+        if (birthdaySection) {
 
+            birthdaySection.scrollIntoView({
+                behavior: "smooth"
             });
+
+        }
 
     }, 900);
 
@@ -225,19 +215,30 @@ function unlockSurprise() {
    START JOURNEY
 ========================================= */
 
-document
-    .getElementById("startJourney")
-    .addEventListener("click", () => {
+const startJourney =
+    document.getElementById("startJourney");
 
-        document
-            .getElementById("memoriesSection")
-            .scrollIntoView({
 
+if (startJourney) {
+
+    startJourney.addEventListener("click", () => {
+
+        const memoriesSection =
+            document.getElementById(
+                "memoriesSection"
+            );
+
+        if (memoriesSection) {
+
+            memoriesSection.scrollIntoView({
                 behavior: "smooth"
-
             });
 
+        }
+
     });
+
+}
 
 
 /* =========================================
@@ -258,7 +259,9 @@ document
 
         });
 
-    
+    }); // ← THIS CLOSING PART WAS MISSING
+
+
 /* =========================================
    CUT THE CAKE
 ========================================= */
@@ -278,26 +281,29 @@ const confettiContainer =
 
 let cakeCut = false;
 
-
-cakeWrapper.addEventListener(
-    "pointerdown",
-    startCakeCut
-);
-
-
-cakeWrapper.addEventListener(
-    "pointermove",
-    moveCakeCut
-);
-
-
-cakeWrapper.addEventListener(
-    "pointerup",
-    finishCakeCut
-);
-
-
 let cuttingStarted = false;
+
+
+/* Only run if cake exists */
+
+if (cakeWrapper) {
+
+    cakeWrapper.addEventListener(
+        "pointerdown",
+        startCakeCut
+    );
+
+    cakeWrapper.addEventListener(
+        "pointermove",
+        moveCakeCut
+    );
+
+    cakeWrapper.addEventListener(
+        "pointerup",
+        finishCakeCut
+    );
+
+}
 
 
 function startCakeCut(event) {
@@ -328,11 +334,6 @@ function moveCakeCut(event) {
     const x =
         event.clientX - rect.left;
 
-
-    /*
-       The user needs to drag
-       around the center of the cake
-    */
 
     const center =
         rect.width / 2;
@@ -371,11 +372,6 @@ function finishCakeCut(event) {
         event.clientY - rect.top;
 
 
-    /*
-       Successful cut if the drag
-       reaches low enough on the cake
-    */
-
     if (endY > 190) {
 
         completeCakeCut();
@@ -398,8 +394,12 @@ function completeCakeCut() {
     );
 
 
-    cakeInstruction.textContent =
-        "🎉 Perfect! You cut the cake!";
+    if (cakeInstruction) {
+
+        cakeInstruction.textContent =
+            "🎉 Perfect! You cut the cake!";
+
+    }
 
 
     createConfetti();
@@ -407,18 +407,22 @@ function completeCakeCut() {
 
     setTimeout(() => {
 
-        cakeSuccess.classList.add(
-            "show"
-        );
+        if (cakeSuccess) {
+
+            cakeSuccess.classList.add(
+                "show"
+            );
 
 
-        cakeSuccess.scrollIntoView({
+            cakeSuccess.scrollIntoView({
 
-            behavior: "smooth",
+                behavior: "smooth",
 
-            block: "center"
+                block: "center"
 
-        });
+            });
+
+        }
 
     }, 900);
 
@@ -430,6 +434,9 @@ function completeCakeCut() {
 ========================================= */
 
 function createConfetti() {
+
+    if (!confettiContainer) return;
+
 
     const colors = [
 
@@ -471,13 +478,11 @@ function createConfetti() {
 
 
         confetti.style.animationDelay =
-            Math.random() * .8 + "s";
+            Math.random() * 0.8 + "s";
 
 
         confetti.style.transform =
-            `rotate(
-                ${Math.random() * 360}deg
-            )`;
+            `rotate(${Math.random() * 360}deg)`;
 
 
         confettiContainer.appendChild(
@@ -497,16 +502,26 @@ function createConfetti() {
 
 
 /* =========================================
-   CONTINUE
+   CONTINUE SURPRISE
 ========================================= */
 
-document
-    .getElementById("continueSurprise")
-    .addEventListener("click", () => {
+const continueSurprise =
+    document.getElementById(
+        "continueSurprise"
+    );
 
-        alert(
-            "Another surprise is waiting ❤️"
-        );
 
-    });
-       
+if (continueSurprise) {
+
+    continueSurprise.addEventListener(
+        "click",
+        () => {
+
+            alert(
+                "Another surprise is waiting ❤️"
+            );
+
+        }
+    );
+
+}
