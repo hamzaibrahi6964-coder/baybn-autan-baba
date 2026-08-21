@@ -525,3 +525,49 @@ if (continueSurprise) {
     );
 
 }
+
+
+/* =========================================
+   LOVE LETTER REVEAL
+========================================= */
+
+const loveLetter =
+    document.querySelector(".love-letter");
+
+const letterObserver =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    loveLetter.classList.add(
+                        "show"
+                    );
+
+                    letterObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.25
+        }
+
+    );
+
+
+if (loveLetter) {
+
+    letterObserver.observe(
+        loveLetter
+    );
+
+}
